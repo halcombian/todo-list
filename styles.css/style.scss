@@ -1,3 +1,5 @@
+@import "_mixins.scss";
+
 html,
 body {
 	background-color: gray;
@@ -9,7 +11,7 @@ body {
 }
 
 .side-bar {
-	background-color: slategray;
+	background-color: #3b82f6;
 	width: 10%;
 	min-width: 100px;
 	padding-top: 20vh;
@@ -17,11 +19,23 @@ body {
 	flex-direction: column;
 	align-items: center;
 	.side-buttons {
-		background-color: slateblue;
+		@include sideImg();
+		//background-color: #f8fafc;
+		border-radius: 2px;
 		width: 50%;
-		padding-bottom: 50%;
+		min-width: 90px;
+		padding-bottom: Min(90px, 50rem);
 		margin: 5%;
 		cursor: pointer;
+	}
+	#new-list {
+		background-image: url("images/add_white_48dp.svg");
+	}
+	#schedule {
+		background-image: url("images/view_week_white_48dp.svg");
+	}
+	#brightness {
+		background-image: url("images/brightness_4_white_48dp.svg");
 	}
 }
 

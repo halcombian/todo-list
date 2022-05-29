@@ -17,29 +17,49 @@ body {
 	padding-top: 20vh;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-end;
 	.side-buttons {
 		@include sideImg();
-		//background-color: #f8fafc;
-		border-radius: 2px;
-		width: 50%;
+		position: relative;
+		width: 90%;
 		min-width: 90px;
-		padding-bottom: Min(90px, 50rem);
-		margin: 5%;
+		margin: 5% -1px 5% 5%;
+		display: flex;
+		justify-content: center;
 		cursor: pointer;
+		z-index: 1;
+		img {
+			object-fit: contain;
+		}
 	}
-	#new-list {
-		background-image: url("images/add_white_48dp.svg");
+	.side-buttons::before {
+		background-color: #f8fafc;
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+
+		transition: ease-in-out 0.3s;
+		transform: scaleX(0);
+		transform-origin: right;
 	}
-	#schedule {
-		background-image: url("images/view_week_white_48dp.svg");
+	.side-buttons:hover::before,
+	.side-buttons:focus::before {
+		transform: scaleX(1);
 	}
-	#brightness {
-		background-image: url("images/brightness_4_white_48dp.svg");
+	.side-buttons:hover > img,
+	.side-buttons:focus > img {
+		//filter: invert(53%) sepia(58%) saturate(5456%) hue-rotate(203deg) brightness(100%) contrast(92%);
+		filter: brightness(0);
+		opacity: 0.7;
+		transition: 0.3s;
 	}
 }
 
 .main-page {
-	background-color: darkgray;
+	background-color: #f8fafc;
 	width: 90%;
 }

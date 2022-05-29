@@ -24,37 +24,68 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .side-bar .side-buttons {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 80%;
-  border-radius: 2px;
-  width: 50%;
+  position: relative;
+  width: 90%;
   min-width: 90px;
-  padding-bottom: Min(90px, 50rem);
-  margin: 5%;
+  margin: 5% -1px 5% 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   cursor: pointer;
+  z-index: 1;
 }
 
-.side-bar #new-list {
-  background-image: url("images/add_white_48dp.svg");
+.side-bar .side-buttons img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
-.side-bar #schedule {
-  background-image: url("images/view_week_white_48dp.svg");
+.side-bar .side-buttons::before {
+  background-color: #f8fafc;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
 }
 
-.side-bar #brightness {
-  background-image: url("images/brightness_4_white_48dp.svg");
+.side-bar .side-buttons:hover::before,
+.side-bar .side-buttons:focus::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.side-bar .side-buttons:hover > img,
+.side-bar .side-buttons:focus > img {
+  -webkit-filter: brightness(0);
+          filter: brightness(0);
+  opacity: 0.7;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .main-page {
-  background-color: darkgray;
+  background-color: #f8fafc;
   width: 90%;
 }
 /*# sourceMappingURL=style.css.map */

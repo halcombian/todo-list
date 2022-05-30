@@ -1,0 +1,51 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+
+.side-bar {
+	background-color: #3b82f6;
+	width: 10%;
+	min-width: 100px;
+	padding-top: 20vh;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	.side-buttons {
+		@include sideImg();
+		position: relative;
+		width: 90%;
+		min-width: 90px;
+		margin: 5% -1px 5% 5%;
+		display: flex;
+		justify-content: center;
+		cursor: pointer;
+		z-index: 1;
+		img {
+			object-fit: contain;
+		}
+	}
+	.side-buttons::before {
+		background-color: $pageWhite;
+		border-radius: 20px 0 0 20px;
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+
+		transition: ease-in-out 0.3s;
+		transform: scaleX(0);
+		transform-origin: right;
+	}
+	.side-buttons:hover::before,
+	.side-buttons:focus::before {
+		transform: scaleX(1);
+	}
+	.side-buttons:hover > img,
+	.side-buttons:focus > img {
+		filter: brightness(0);
+		opacity: 0.7;
+		transition: ease-in-out 0.3s;
+	}
+}

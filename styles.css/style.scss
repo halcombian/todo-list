@@ -1,8 +1,9 @@
 @import "_mixins.scss";
+@import "_variables.scss";
+@import "_side-bar.scss";
 
 html,
 body {
-	background-color: gray;
 	height: 100%;
 	width: 100%;
 	margin: 0;
@@ -10,56 +11,17 @@ body {
 	justify-content: flex-start;
 }
 
-.side-bar {
-	background-color: #3b82f6;
-	width: 10%;
-	min-width: 100px;
-	padding-top: 20vh;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	.side-buttons {
-		@include sideImg();
-		position: relative;
-		width: 90%;
-		min-width: 90px;
-		margin: 5% -1px 5% 5%;
-		display: flex;
-		justify-content: center;
-		cursor: pointer;
-		z-index: 1;
-		img {
-			object-fit: contain;
-		}
-	}
-	.side-buttons::before {
-		background-color: #f8fafc;
-		content: "";
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		z-index: -1;
-
-		transition: ease-in-out 0.3s;
-		transform: scaleX(0);
-		transform-origin: right;
-	}
-	.side-buttons:hover::before,
-	.side-buttons:focus::before {
-		transform: scaleX(1);
-	}
-	.side-buttons:hover > img,
-	.side-buttons:focus > img {
-		//filter: invert(53%) sepia(58%) saturate(5456%) hue-rotate(203deg) brightness(100%) contrast(92%);
-		filter: brightness(0);
-		opacity: 0.7;
-		transition: 0.3s;
-	}
-}
-
 .main-page {
-	background-color: #f8fafc;
+	background-color: #e2e8f0;
 	width: 90%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	.list-page {
+		background-color: $pageWhite;
+		border-radius: 0 25px 25px 0;
+		box-shadow: 2px 2px 5px #d1d5db;
+		height: 95%;
+		width: 90%;
+	}
 }
